@@ -1,6 +1,6 @@
 /* Estilo para a tabela */
 table {
-    width: 35%;
+    width: 38%;
     border-collapse: collapse; /* Remove espaços entre as bordas das células */
     margin: 20px 0; /* Margem superior e inferior */
     font-family: Arial, sans-serif; /* Fonte da tabela */
@@ -11,7 +11,7 @@ table {
     background-color: #a3a3a3; /* Cor de fundo cinza */
     color: white; /* Cor do texto branco */
     padding: 12px; /* Espaçamento interno das células */
-    text-align: left; /* Alinhamento do texto */
+    text-align: center; /* Alinhamento do texto */
     border-bottom: 2px solid #000000; /* Linha inferior fina */
     border-top: 1px solid #000;
     border-right: 1px solid #000; /* Linha vertical direita preta nas células de cabeçalho */
