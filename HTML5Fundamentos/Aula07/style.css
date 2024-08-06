@@ -1,0 +1,60 @@
+/* Estilo para a tabela */
+table {
+    width: 35%;
+    border-collapse: collapse; /* Remove espaços entre as bordas das células */
+    margin: 20px 0; /* Margem superior e inferior */
+    font-family: Arial, sans-serif; /* Fonte da tabela */
+}
+
+/* Estilo para as células de cabeçalho */
+#th1 {
+    background-color: #a3a3a3; /* Cor de fundo cinza */
+    color: white; /* Cor do texto branco */
+    padding: 12px; /* Espaçamento interno das células */
+    text-align: left; /* Alinhamento do texto */
+    border-bottom: 2px solid #000000; /* Linha inferior fina */
+    border-top: 1px solid #000;
+    border-right: 1px solid #000; /* Linha vertical direita preta nas células de cabeçalho */
+    border-left: 1px solid #000; /* Linha vertical direita preta nas células de cabeçalho */
+}
+th {
+    background-color: #ffffff; /* Cor de fundo cinza */
+    color: rgb(0, 0, 0); /* Cor do texto branco */
+    padding: 12px; /* Espaçamento interno das células */
+    text-align: left; /* Alinhamento do texto */
+    border-bottom: 2px solid #000000; /* Linha inferior fina */
+    border-right: 1px solid #000; /* Linha vertical direita preta nas células de cabeçalho */
+    border-left: 1px solid #000; /* Linha vertical direita preta nas células de cabeçalho */
+}
+
+/* Estilo para a célula que usa colspan */
+th[colspan] {
+    text-align: center; /* Alinhamento centralizado para células com colspan */
+    font-size: 18px; /* Tamanho da fonte */
+    border-right: none; /* Remove a borda direita para a célula com colspan */
+}
+
+/* Estilo para as células de dados */
+td {
+    padding: 12px; /* Espaçamento interno das células */
+    border-bottom: 1px solid #000000; /* Linha inferior fina */
+    border-right: 1px solid #000; /* Linha vertical direita preta nas células de dados */
+    border-left: 1px solid #000; /* Linha vertical direita preta nas células de dados */
+}
+
+/* Estilo para as linhas alternadas */
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Cor de fundo cinza claro para linhas pares */
+}
+
+/* Estilo para a primeira linha do cabeçalho */
+thead tr:first-child {
+    border-bottom: 2px solid #a3a3a3; /* Linha inferior mais espessa */
+}
+
+/* Estilo para o conteúdo da tabela */
+table caption {
+    font-size: 1.5em; /* Tamanho da fonte do título */
+    margin-bottom: 10px; /* Margem inferior */
+    font-weight: bold; /* Negrito */
+}
