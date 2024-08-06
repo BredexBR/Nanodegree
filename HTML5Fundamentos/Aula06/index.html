@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <title>HTML5 Fundamentos - Microdata</title>
+</head>
+
+<body>
+    <main role="main">
+        <div itemscope itemtype="http://schema.org/Organization">
+            Empresa: <span itemprop="name">Impacta Certificação e Treinamento</span><br>
+            <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                Endereço: 
+                <span itemprop="streetAddress">Av. Paulista, 1009</span>
+            </div>
+            Tel: <span itemprop="telephone">(11) 3254-2200</span><br>
+            Site: <a href="http://www.impacta.com.br" itemprop="url">www.impacta.com.br</a>
+        </div>
+    </main>
+</body>
+
+</html>
