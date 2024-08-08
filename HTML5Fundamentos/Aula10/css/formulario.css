@@ -1,0 +1,25 @@
+form {
+    max-width: 300px;
+    margin: auto;
+}
+label {
+    display: block;
+    margin-top: 10px;
+}
+input {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+}
+.telefone-enviar {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+.telefone-enviar input[type="tel"] {
+    flex: 2;
+    margin-right: 10px;
+}
+.telefone-enviar button {
+    flex: 1;
+}

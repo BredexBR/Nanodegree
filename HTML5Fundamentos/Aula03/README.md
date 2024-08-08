@@ -1,4 +1,5 @@
-## Laboratório 1 A 
+# Laboratório 1 
+## A  
 - Criando um documento HTML com os elementos principais:
 1. Crie um diretório chamado labs e, dentro dele, um arquivo com o nome lab_aula3.html;
 2. Abra o arquivo no editor de texto e determine o doctype apropriado para HTML5; 

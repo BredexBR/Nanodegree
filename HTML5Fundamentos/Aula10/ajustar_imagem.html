@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Laboratório 3 - Utilizando campos range para ajustar a largura e altura de uma imagem</title>
+    <link href="css/ajustar_imagem.css" rel="stylesheet">    
+</head>
+<body>
+    <div id="Area">
+        <img src="../imgs/HTML5-Logo.png" alt="logotipo">
+    </div>
+    <input type="range" id="V" max="600" min="0" value="600">
+    <input type="range" id="H" max="600" min="0" value="600">
+    <script>
+        var ranges = document.querySelectorAll('[type="range"]');
+        for (var i = 0; i < ranges.length; i++) {
+            ranges.item(i).addEventListener('change', function () {
+                var imgStyle = document.querySelector('img').style,
+                    size = this.value + 'px';
+                if (this.id == 'V') {
+                    imgStyle.height = size;
+                } else {
+                    imgStyle.width = size;
+                }
+            }, false);
+        }
+    </script>
+</body>
+</html>

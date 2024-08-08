@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Laboratório 1 - Criando um formulário com elementos do HTML 5</title>
+    <link href="css/formulario.css" rel="stylesheet">    
+</head>
+<body>
+    <form>
+        <label>Nascimento:</label>
+        <input type="date">
+        
+        <label>Salário:</label>
+        <input type="range" min="0" max="10000">
+        
+        <label>E-mail:</label>
+        <input type="email">
+        
+        <label>Site:</label>
+        <input type="url">
+        
+        <label for="telefone">Telefone:</label>
+        <div class="telefone-enviar">
+            <input type="tel" id="telefone" pattern="[0-9]{4}-[0-9]{4}">
+            <button type="submit" class="btn">Enviar</button>
+        </div>
+    </form>
+</body>
+</html>

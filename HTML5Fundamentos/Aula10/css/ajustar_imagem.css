@@ -1,0 +1,25 @@
+body {
+    margin: 10px;
+}
+img {
+    width: 600px;
+    height: 600px;
+}
+#Area {
+    float: left;
+    width: 600px;
+    height: 600px;
+    border: rgba(204, 204, 204, 1) 1px solid;
+}
+#V {
+    -webkit-appearance: slider-vertical;
+    height: 600px;
+    width: 30px;
+    float: left;
+}
+#H {
+    float: left;
+    clear: left;
+    width: 600px;
+    height: 30px;
+}
