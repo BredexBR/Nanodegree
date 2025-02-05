@@ -1,0 +1,37 @@
+digraph Tree {
+node [shape=box, fontname="helvetica"] ;
+edge [fontname="helvetica"] ;
+0 [label="departamento_ciencia de dados <= 0.5\ngini = 0.8\nsamples = 10\nvalue = [1, 2, 2, 3, 1, 1]\nclass = Java"] ;
+1 [label="tempo (anos) <= 1.5\ngini = 0.812\nsamples = 8\nvalue = [1, 2, 2, 1, 1, 1]\nclass = Rubi"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]\nclass = PHP"] ;
+1 -> 2 ;
+3 [label="departamento_web <= 0.5\ngini = 0.776\nsamples = 7\nvalue = [1, 2, 2, 1, 0, 1]\nclass = Rubi"] ;
+1 -> 3 ;
+4 [label="departamento_programacao <= 0.5\ngini = 0.667\nsamples = 3\nvalue = [1, 1, 0, 1, 0, 0]\nclass = R"] ;
+3 -> 4 ;
+5 [label="gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]\nclass = Java"] ;
+4 -> 5 ;
+6 [label="tempo (anos) <= 4.5\ngini = 0.5\nsamples = 2\nvalue = [1, 1, 0, 0, 0, 0]\nclass = R"] ;
+4 -> 6 ;
+7 [label="gini = 0.0\nsamples = 1\nvalue = [0, 1, 0, 0, 0, 0]\nclass = Rubi"] ;
+6 -> 7 ;
+8 [label="gini = 0.0\nsamples = 1\nvalue = [1, 0, 0, 0, 0, 0]\nclass = R"] ;
+6 -> 8 ;
+9 [label="nivel_pleno <= 0.5\ngini = 0.625\nsamples = 4\nvalue = [0, 1, 2, 0, 0, 1]\nclass = Python"] ;
+3 -> 9 ;
+10 [label="nivel_senior <= 0.5\ngini = 0.667\nsamples = 3\nvalue = [0, 1, 1, 0, 0, 1]\nclass = Rubi"] ;
+9 -> 10 ;
+11 [label="gini = 0.0\nsamples = 1\nvalue = [0, 1, 0, 0, 0, 0]\nclass = Rubi"] ;
+10 -> 11 ;
+12 [label="tempo (anos) <= 8.0\ngini = 0.5\nsamples = 2\nvalue = [0, 0, 1, 0, 0, 1]\nclass = Python"] ;
+10 -> 12 ;
+13 [label="gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 0, 1]\nclass = C#"] ;
+12 -> 13 ;
+14 [label="gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]\nclass = Python"] ;
+12 -> 14 ;
+15 [label="gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]\nclass = Python"] ;
+9 -> 15 ;
+16 [label="gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 2, 0, 0]\nclass = Java"] ;
+0 -> 16 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+}
