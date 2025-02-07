@@ -1,0 +1,25 @@
+digraph Tree {
+node [shape=box, fontname="helvetica"] ;
+edge [fontname="helvetica"] ;
+0 [label="Aspecto_Nublado <= 0.5\nsquared_error = 86.883\nsamples = 14\nvalue = 39.786"] ;
+1 [label="Temperatura_Quente <= 0.5\nsquared_error = 93.36\nsamples = 10\nvalue = 37.2"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="Vento_Sim <= 0.5\nsquared_error = 85.734\nsamples = 8\nvalue = 39.625"] ;
+1 -> 2 ;
+3 [label="Aspecto_Sol <= 0.5\nsquared_error = 36.56\nsamples = 5\nvalue = 43.2"] ;
+2 -> 3 ;
+4 [label="squared_error = 9.556\nsamples = 3\nvalue = 47.667"] ;
+3 -> 4 ;
+5 [label="squared_error = 2.25\nsamples = 2\nvalue = 36.5"] ;
+3 -> 5 ;
+6 [label="squared_error = 110.889\nsamples = 3\nvalue = 33.667"] ;
+2 -> 6 ;
+7 [label="squared_error = 6.25\nsamples = 2\nvalue = 27.5"] ;
+1 -> 7 ;
+8 [label="Umidade_Normal <= 0.5\nsquared_error = 12.188\nsamples = 4\nvalue = 46.25"] ;
+0 -> 8 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+9 [label="squared_error = 9.0\nsamples = 2\nvalue = 49.0"] ;
+8 -> 9 ;
+10 [label="squared_error = 0.25\nsamples = 2\nvalue = 43.5"] ;
+8 -> 10 ;
+}
