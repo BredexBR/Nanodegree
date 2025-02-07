@@ -60,22 +60,29 @@ Imagine um sistema que recebe dados sobre casas (metragem, número de quartos, l
 
 ## Bibliotecas
 ### Pandas
-
 Para importar o pandas:
 
 ```bash
 pip install pandas
 ```
 
-### openpyxl
+### Openpyxl
 Para importar o openpyxl:
 
 ```bash
 pip install openpyxl
 ```
 
-### scikit-learn
-Para importar o scikit-learn
+### Scikit-learn
+Para importar o scikit-learn:
+
 ```bash
 pip install scikit-learn
+```
+
+### Matplotlib
+Para importar matplotlib:
+
+```bash
+pip install matplotlib
 ```
