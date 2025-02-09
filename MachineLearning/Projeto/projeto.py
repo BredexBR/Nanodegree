@@ -1,13 +1,20 @@
 import pandas as pd
+
 import matplotlib.pyplot as plt
+
 from sklearn import preprocessing
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.metrics import confusion_matrix, accuracy_score
+import pickle
 
 # ------------------------------ EXPLORAÇÃO DOS DADOS ----------------------------- #
 
 plt.ion() # Ativa o modo interativo do Matplotlib para exibir gráficos dinamicamente
 
 base = pd.read_csv("docs/modelagem_rh.csv")
-exibirGraficos = 1
+exibirGraficos = 0
 # print(base.shape)
 # print(base.head())
 
@@ -69,13 +76,15 @@ base.loc[base.nivel_satisfacao.isnull(),'nivel_satisfacao'] = base.nivel_satisfa
 
 # Cria variáveis dummy para as colunas categóricas em 'base', excluindo a primeira coluna de cada 
 ## variável (drop_first=True)
-# base = pd.get_dummies(base, drop_first=True)
+base = pd.get_dummies(base, drop_first=True)
 
 ## Cria um DataFrame que mostra o valor máximo e mínimo de cada coluna da base de dados
-# pd.DataFrame([base.max(), base.min()], index=["max", "min"]).T
+pd.DataFrame([base.max(), base.min()], index=["max", "min"]).T
 
 # Extrai os valores numéricos da base para uma matriz de numpy
 x = base.values
+
+minmax = preprocessing.MinMaxScaler()
 
 # Aplica a transformação Min-Max (escalonamento) aos dados
 x_scaled = minmax.fit_transform(x)
@@ -85,3 +94,80 @@ base = pd.DataFrame(x_scaled, columns=base.columns)
 
 # Cria um DataFrame que mostra o valor máximo e mínimo de cada coluna após o escalonamento
 pd.DataFrame([base.max(), base.min()], index=["max", "min"]).T
+
+# ------------------------ MODELAGEM ------------------------  #
+
+cols = list(base.columns)
+cols.remove("saiu")
+
+x = base[cols]
+y = base["saiu"]
+
+knn = KNeighborsClassifier(n_neighbors=3)
+
+tree = DecisionTreeClassifier()
+
+# Divide os dados em conjuntos de treinamento (X_train, y_train) e 
+# teste (X_test, y_test) com 80% para treino e 20% para teste
+X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
+
+knn.fit(X_train, y_train)
+
+# predicted = knn.predict(X_test)
+
+## Calcula a acurácia do modelo comparando as previsões com os valores reais (y_test)
+# print(accuracy_score(predicted, y_test))
+
+## Calcula a matriz de confusão comparando as previsões (predicted) com os valores reais (y_test)
+# print(confusion_matrix(predicted, y_test))
+
+tree.fit(X_train, y_train)
+
+## Calcula a acurácia do modelo comparando as previsões com os valores reais (y_test)
+# print(accuracy_score(tree.predict(X_test), y_test))
+
+## Calcula a matriz de confusão comparando as previsões (predicted) com os valores reais (y_test)
+# print(confusion_matrix(tree.predict(X_test), y_test))
+
+# Realiza a validação cruzada para avaliar o modelo 'knn' usando 5 divisões e a métrica de acurácia
+scores = cross_val_score(knn, x, y, cv=5, scoring='accuracy')
+
+## Exibe a média das acurácias obtidas nas 5 divisões (folds) da validação cruzada
+# print(scores.mean())
+
+## Exibe o desvio padrão das acurácias obtidas nas 5 divisões (folds) da validação cruzada
+# print(scores.std())
+
+scores_tree = cross_val_score(tree, x, y, cv=5, scoring='accuracy')
+
+## Exibe a média das acurácias obtidas nas 5 divisões (folds) da validação cruzada
+# print(scores_tree.mean())
+
+## Exibe o desvio padrão das acurácias obtidas nas 5 divisões (folds) da validação cruzada
+# print(scores_tree.std())
+
+
+# ------------------- DEPLOY -------------------  #
+# Cria um DataFrame para visualizar a importância das features
+# 'tree.feature_importances_' contém a importância de cada variável no modelo de árvore de decisão
+# 'x.columns' contém os nomes das variáveis que foram usadas no modelo
+
+# Cria um DataFrame onde as linhas são as features e as colunas contêm suas importâncias
+# A indexação [:5] seleciona as primeiras 5 features com maior importância
+# Isso ajuda a entender quais variáveis têm maior influência no modelo
+pd.DataFrame(tree.feature_importances_, index=x.columns)[:5].plot(kind="bar")
+
+if exibirGraficos == 1:    
+    plt.show(block=True)
+
+tree.fit(x, y)
+
+# Salva o modelo treinado 'tree' no arquivo 'modeloRH.pickle'
+# 'wb' indica que o arquivo será aberto em modo de escrita binária (write binary)
+pickle.dump(tree, open("docs/modeloRH.pickle", "wb"))
+
+# Carrega o modelo de árvore de decisão treinado a partir do arquivo 'modeloRH.pickle'
+# 'rb' indica que o arquivo será aberto em modo de leitura binária (read binary)
+treeSalva = pickle.load(open("docs/modeloRH.pickle", "rb"))
+
+treeSalva.predict(X_test) # Nesse caso X_test poderia ser outros conjuntos de treinamento.
